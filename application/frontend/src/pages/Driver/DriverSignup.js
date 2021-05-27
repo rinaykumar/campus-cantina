@@ -46,7 +46,7 @@ const DriverSignup = () => {
     if (!showPasswordsMismatchAlert && !showInvalidPwdLengthAlert) {
       let newDriverID = nanoid();
       axios
-        .post('http://localhost:3001/api/driver/driver-signup', {
+        .post('/api/driver/driver-signup', {
           driverID: newDriverID,
           driverName: driverName,
           driverPhone: `${driverContactNumber}`,

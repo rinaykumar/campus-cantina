@@ -26,7 +26,7 @@ const CurrentOrders = () => {
 
   const changeOrderStatus = (clickedOrderID) => {
     axios
-      .post('http://localhost:3001/api/order/order-completed', null, {
+      .post('/api/order/order-completed', null, {
         params: { orderID: clickedOrderID },
       })
       .then((res) => {
@@ -38,7 +38,7 @@ const CurrentOrders = () => {
   useEffect(() => {
     if (appUser.type === 'driver') {
       axios
-        .get('http://localhost:3001/api/driver/driver-info', {
+        .get('/api/driver/driver-info', {
           params: {
             driverEmail: appUser.email,
           },
@@ -46,7 +46,7 @@ const CurrentOrders = () => {
         .then((res) => {
           setDriverDetails(res.data[0]);
           axios
-            .get('http://localhost:3001/api/order/user-orders', {
+            .get('/api/order/user-orders', {
               params: {
                 driverID: res.data[0].ID,
               },

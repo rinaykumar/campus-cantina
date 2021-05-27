@@ -27,7 +27,7 @@ const OwnerOrderHistory = () => {
       .filter((driver) => driver.Name === selectedDriverName)
       .map((d1) => d1.ID);
     axios
-      .post('http://localhost:3001/api/order/assign-driver', null, {
+      .post('/api/order/assign-driver', null, {
         params: {
           orderID: clickedOrderIDAssignDriver,
           driverID: selectedDriverID[0],
@@ -43,12 +43,12 @@ const OwnerOrderHistory = () => {
   useEffect(() => {
     if (appUser.type === 'owner') {
       axios
-        .get('http://localhost:3001/api/restaurant/all-restaurants')
+        .get('/api/restaurant/all-restaurants')
         .then((res) => {
           // console.log(res.data);
           setLoadData(false);
           axios
-            .get('http://localhost:3001/api/restaurant/owner-info', {
+            .get('/api/restaurant/owner-info', {
               params: { ownerEmail: appUser.email },
             })
             .then((res1) => {
@@ -58,7 +58,7 @@ const OwnerOrderHistory = () => {
                   restaurant.Name.trim() === res1.data[0].Restaurant_Name
               );
               axios
-                .get('http://localhost:3001/api/order/user-orders', {
+                .get('/api/order/user-orders', {
                   params: { restaurantName: tempOwnerRestaurant[0].Name },
                 })
                 .then((res) => {
@@ -68,7 +68,7 @@ const OwnerOrderHistory = () => {
                 });
 
               axios
-                .get('http://localhost:3001/api/driver/all-drivers')
+                .get('/api/driver/all-drivers')
                 .then((res) => {
                   const tempList = res.data.filter(
                     (row) => row.Restaurant === tempOwnerRestaurant[0].Name

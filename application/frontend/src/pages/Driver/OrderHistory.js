@@ -20,14 +20,14 @@ const DriverAvailableOrders = () => {
   useEffect(() => {
     if (appUser.type === 'driver') {
       axios
-        .get('http://localhost:3001/api/driver/driver-info', {
+        .get('/api/driver/driver-info', {
           params: {
             driverEmail: appUser.email,
           },
         })
         .then((res) => {
           axios
-            .get('http://localhost:3001/api/order/user-orders', {
+            .get('/api/order/user-orders', {
               params: {
                 driverID: res.data[0].ID,
               },

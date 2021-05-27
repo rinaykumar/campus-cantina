@@ -17,12 +17,12 @@ const OwnerProfile = () => {
   useEffect(() => {
     if (appUser.type === 'owner') {
       axios
-        .get('http://localhost:3001/api/restaurant/all-restaurants')
+        .get('/api/restaurant/all-restaurants')
         .then((res) => {
           // console.log(res.data);
           setLoadData(false);
           axios
-            .get('http://localhost:3001/api/restaurant/owner-info', {
+            .get('/api/restaurant/owner-info', {
               params: { ownerEmail: appUser.email },
             })
             .then((res1) => {

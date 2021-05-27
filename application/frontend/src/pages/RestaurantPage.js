@@ -65,7 +65,7 @@ const RestaurantPage = () => {
     // document.title = `CC - ${clickedRestaurantName}`;
     // get all restaurants from backend
     axios
-      .get('http://localhost:3001/api/restaurant-menu/restaurant-menu-items', {
+      .get('/api/restaurant-menu/restaurant-menu-items', {
         params: { restaurantName: clickedRestaurantName },
         cancelToken: source.token,
       })

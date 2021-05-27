@@ -59,7 +59,7 @@ const SFSUSignup = () => {
     ) {
       let newcustomerID = nanoid();
       axios
-        .post('http://localhost:3001/api/sfsucustomer/customer-signup', {
+        .post('/api/sfsucustomer/customer-signup', {
           customerID: newcustomerID,
           customerName: customerName,
           customerAddress: customerAddress,

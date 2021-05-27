@@ -39,7 +39,7 @@ const SFSULogin = () => {
 
   const loginCustomer = () => {
     axios
-      .get('http://localhost:3001/api/sfsucustomer/customer-info', {
+      .get('/api/sfsucustomer/customer-info', {
         params: {
           customerEmail: customerEmail,
         },

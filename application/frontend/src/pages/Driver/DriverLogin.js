@@ -24,7 +24,7 @@ const DriverLogin = () => {
 
   const loginDriver = () => {
     axios
-      .get('http://localhost:3001/api/driver/driver-info', {
+      .get('/api/driver/driver-info', {
         params: {
           driverEmail: driverEmail,
         },

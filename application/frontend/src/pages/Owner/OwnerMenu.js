@@ -48,7 +48,7 @@ const OwnerMenu = () => {
       // console.log(editItemPrice);
       axios
         .post(
-          'http://localhost:3001/api/restaurant-menu/edit-menu-item',
+          '/api/restaurant-menu/edit-menu-item',
           null,
           {
             params: {
@@ -76,7 +76,7 @@ const OwnerMenu = () => {
   const handleDeleteMenuItem = (event) => {
     event.preventDefault();
     axios
-      .delete('http://localhost:3001/api/restaurant-menu/delete-menu-item', {
+      .delete('/api/restaurant-menu/delete-menu-item', {
         params: { itemID: `${deleteMenuItemID}` },
       })
       .then((res) => {
@@ -98,7 +98,7 @@ const OwnerMenu = () => {
     ) {
       let ID = nanoid();
       axios
-        .post('http://localhost:3001/api/restaurant-menu/add-menu-item', {
+        .post('/api/restaurant-menu/add-menu-item', {
           itemID: ID,
           restaurantID: `${ownerRestaurant[0].ID}`,
           itemName: menuItemName,
@@ -122,12 +122,12 @@ const OwnerMenu = () => {
   useEffect(() => {
     if (appUser.type === 'owner') {
       axios
-        .get('http://localhost:3001/api/restaurant/all-restaurants')
+        .get('/api/restaurant/all-restaurants')
         .then((res) => {
           // console.log(res.data);
           setLoadData(false);
           axios
-            .get('http://localhost:3001/api/restaurant/owner-info', {
+            .get('/api/restaurant/owner-info', {
               params: { ownerEmail: appUser.email },
             })
             .then((res1) => {
@@ -139,7 +139,7 @@ const OwnerMenu = () => {
               setOwnerRestaurant(tempOwnerRestaurant);
               axios
                 .get(
-                  'http://localhost:3001/api/restaurant-menu/restaurant-menu-items',
+                  '/api/restaurant-menu/restaurant-menu-items',
                   {
                     params: { restaurantName: tempOwnerRestaurant[0].Name },
                   }

@@ -90,7 +90,7 @@ const Checkout = () => {
         //   ).toFixed(2)
         // );
         axios
-          .post('http://localhost:3001/api/order/place-order', {
+          .post('/api/order/place-order', {
             orderID: ID,
             orderSubID: ID1,
             restaurantID: `${currentRestaurant[0].ID}`,
@@ -140,7 +140,7 @@ const Checkout = () => {
         (restaurant) => restaurant.Name === cartRestaurantsList[0]
       );
       axios
-        .post('http://localhost:3001/api/order/place-order', {
+        .post('/api/order/place-order', {
           orderID: ID,
           orderSubID: null,
           restaurantID: `${currentRestaurant[0].ID}`,
@@ -185,7 +185,7 @@ const Checkout = () => {
       if (cartItems.length !== 0) {
         let source = axios.CancelToken.source();
         axios
-          .get('http://localhost:3001/api/sfsucustomer/customer-info', {
+          .get('/api/sfsucustomer/customer-info', {
             params: { customerEmail: appUser.email },
             cancelToken: source.token,
           })

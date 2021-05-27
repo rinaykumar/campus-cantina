@@ -24,7 +24,7 @@ const OwnerLogin = () => {
 
   const loginOwner = () => {
     axios
-      .get('http://localhost:3001/api/restaurant/owner-info', {
+      .get('/api/restaurant/owner-info', {
         params: {
           ownerEmail: ownerEmail,
         },

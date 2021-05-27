@@ -17,7 +17,7 @@ const CustomerOrders = () => {
   useEffect(() => {
     if (appUser.type === 'customer') {
       axios
-        .get('http://localhost:3001/api/order/user-orders', {
+        .get('/api/order/user-orders', {
           params: {
             customerName: `${appUser.name}`,
           },
